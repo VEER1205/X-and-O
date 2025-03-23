@@ -1,0 +1,123 @@
+Manager:
+    Main:
+    GameWindow:
+
+<GameButton@Button>:
+    color:(255/255, 165/255, 0, 1)
+    background_normal:''
+    background_color: (240/255, 248/255, 255/255, 1)
+    disabled_color:[1, 0.6470588, 0, 1] 
+    on_release:app.Board(self)
+    font_size:32
+<Main>:
+    name:"main"
+    MDCard:
+        size_hint:None,None
+        size:250,300
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        padding:25
+        spacing:25
+        orientation:"vertical"
+
+        MDLabel:
+            text:"WELCOME"
+            halign:"center"
+            font_size:32
+            color:(255/255, 165/255, 0, 1)
+            pos_hint:{"center_x":0.5,"center_y":.2}
+
+        MDTextField:
+            id:use
+            mode: "rectangle"
+            pos_hint:{"center_x":.52,"center_y":.4}
+            hint_text:"ENTER NAME"
+
+
+        MDRoundFlatButton:
+            text:"Play"
+            font_size:24
+            mode: "round"
+            on_release: app.root.current="gamewindow"
+            on_press:app.Hi(use)
+            pos_hint:{"center_x":0.5}
+
+
+        Widget:
+            size_hint_y:None
+            height: 8   
+    
+
+<GameWindow>:
+    name:"gamewindow" 
+    MDBoxLayout:
+        orientation:"vertical"
+        spacing:20
+        MDLabel:
+            id:head
+            text:"Task"
+            halign:"center"
+            color:(255/255, 165/255, 0, 1)
+            font_size:32
+            size_hint:(1,0.2)
+        MDGridLayout:
+            size_hint:(.6,.6)
+            pos_hint:{"center_x":.5,"center_y":.5}
+            cols:3
+            rows:3
+            spacing:10  
+     
+            GameButton:
+                id:b1
+                text:""
+        
+            GameButton:
+                id:b2
+                text:""
+
+            GameButton:
+                id:b3
+                text:""
+           
+            GameButton:
+                id:b4
+                text:""
+      
+            GameButton:
+                id:b5
+                text:""
+         
+            GameButton:
+                id:b6
+                text:""
+  
+            GameButton:
+                id:b7
+                text:""
+
+            GameButton:
+                id:b8
+                text:""
+        
+            GameButton:
+                id:b9
+                text:""
+
+        Widget:
+            size_hint_y:.03 
+
+        MDRaisedButton:
+            size_hint:(.165,.1)
+            text:"Restart"
+            font_size:24
+            md_bg_color: "orange"
+            color:(255/255, 165/255, 0, 1)
+            background_normal:''
+            background_color: (32/255,32/255,32/255, 1)
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            on_press:app.restart()
+
+        Widget:
+            size_hint_y:.03   
+
+   
+
